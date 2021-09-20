@@ -1,0 +1,20 @@
+{
+  "name": "@example-org/local-pkg",
+  "version": "0.0.0",
+  "description": "Local package illustration for bazel",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@bazel/bazelisk": "^1.10.1",
+    "@bazel/buildifier": "^0.0.0-PLACEHOLDER",
+    "@bazel/ibazel": "^0.15.10",
+    "@bazel/typescript": "^4.0.0",
+    "@types/node": "^16.4.13",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
+  },
+  "exports": {
+    "./src/*": "./dist/*.js"
+  }
+}
