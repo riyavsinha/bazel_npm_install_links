@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "@example-org/pkg-a",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@bazel/bazelisk": "^1.10.1",
+    "@bazel/buildifier": "^4.2.1",
+    "@bazel/ibazel": "^0.15.10",
+    "@bazel/typescript": "^4.1.0",
+    "ts-loader": "^8.0.3",
+    "ts-node": "^8.10.2",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  }
+}
