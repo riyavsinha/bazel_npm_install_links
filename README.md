@@ -5,4 +5,5 @@ An example of using `links` in the Bazel npm_install rule in the node_js ruleset
 
 ## Status
 
-https://github.com/bazelbuild/rules_nodejs/issues/2961
+Tests are not able to find locally linked pacakges:
+https://github.com/bazelbuild/rules_nodejs/issues/3186
