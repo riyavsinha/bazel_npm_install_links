@@ -1,16 +1,12 @@
-load("@local_pkg_npm//@bazel/typescript:index.bzl", "ts_project")
+load("@aspect_rules_swc//swc:swc.bzl", "swc")
 
 package(default_visibility = ["//visibility:public"])
 
-ts_project(
+swc(
     name = "local_pkg",
     srcs = glob(["*.ts"]),
-    incremental = True,
-    source_map = True,
-    declaration = True,
-    declaration_map = True,
-    tsconfig = "//packages/local_pkg:tsconfig",
-    deps = [
+    swcrc = "//packages/local_pkg:.swcrc",
+    data = [
       "@local_pkg_npm//@types/node"
     ],
 )

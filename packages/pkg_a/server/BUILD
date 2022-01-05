@@ -1,1 +1,1 @@
-exports_files(["tsconfig.json"], visibility = ["//:__subpackages__"])
+exports_files(["tsconfig.json", ".swcrc"], visibility = ["//:__subpackages__"])

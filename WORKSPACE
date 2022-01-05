@@ -43,3 +43,40 @@ npm_install(
     }
 )
 
+#####################
+# rules_swc
+#####################
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "aspect_rules_swc",
+    sha256 = "b58c8f3681215af30842bc3eeec30c9d2047cdf63302bba7d2e86c55a5c77edf",
+    strip_prefix = "rules_swc-0.3.1",
+    url = "https://github.com/aspect-build/rules_swc/archive/v0.3.1.tar.gz",
+)
+
+# Fetches the rules_swc dependencies.
+# If you want to have a different version of some dependency,
+# you should fetch it *before* calling this.
+# Alternatively, you can skip calling this function, so long as you've
+# already fetched all the dependencies.
+load("@aspect_rules_swc//swc:dependencies.bzl", "rules_swc_dependencies")
+rules_swc_dependencies()
+
+# Fetches a pre-built Rust-node binding from
+# https://github.com/swc-project/swc/releases.
+# If you'd rather compile it from source, you can use rules_rust, fetch the project,
+# then register the toolchain yourself. (Note, this is not yet documented)
+load("@aspect_rules_swc//swc:repositories.bzl", "swc_register_toolchains")
+swc_register_toolchains(
+    name = "swc",
+    swc_version = "v1.2.118",
+)
+
+# Fetches a NodeJS interpreter, needed to run the swc CLI.
+# You can skip this if you already register a nodejs toolchain.
+load("@rules_nodejs//nodejs:repositories.bzl", "nodejs_register_toolchains")
+nodejs_register_toolchains(
+    name = "node16",
+    node_version = "16.9.0",
+)

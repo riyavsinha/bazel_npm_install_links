@@ -7,11 +7,4 @@
 #   See https://www.npmjs.com/package/@bazel/typescript#installation
 load("@local_pkg_npm//@bazel/typescript:index.bzl", "ts_config")
 
-ts_config(
-  name = "tsconfig",
-  src = "tsconfig.json",
-  deps = [
-    "//packages:tsconfig.json"
-  ],
-  visibility = ["//:__subpackages__"]
-)
+exports_files([".swcrc"])
