@@ -10,6 +10,7 @@ ava_test(
   name = "tests",
   args = ["-v **/*-test.js"],
   data = [
-    ":tests_js"
+    ":tests_js",
+    "@pkg_a_npm//@example-org/local-pkg"
   ],
 )
